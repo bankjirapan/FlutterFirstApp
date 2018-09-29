@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
-//Start Application
-main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyFirstApp());
 
-class MyApp extends StatelessWidget {
-  build(context) {
+
+class MyFirstApp extends StatelessWidget {
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('FlutterFirestApp'),
+          title: Text("MyFirstApp"),
         ),
       ),
     );
