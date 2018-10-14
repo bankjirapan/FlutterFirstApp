@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
-
+import './product_manager.dart';
 void main() => runApp(MyFirstApp());
 
-class MyFirstApp extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    //TODO : implements create state
-    return _MyFirstAppState();
-  }
-}
-
-class _MyFirstAppState extends State<MyFirstApp> {
-
+class MyFirstApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +11,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
         appBar: AppBar(
           title: Text("MyFirstApp"),
         ),
-        body: Column(
-          children: [
-      
-          
-          ],
-        ),
+        body: ProductManager(),
       ),
     );
   }
