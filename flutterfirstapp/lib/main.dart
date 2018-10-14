@@ -34,18 +34,7 @@ class _MyFirstAppState extends State<MyFirstApp> {
                 },
               ),
             ),
-            Column(
-              children: _products
-                  .map((element) => Card(
-                        child: Column(
-                          children: <Widget>[
-                            Image.asset('assets/food.jpg'),
-                            Text(element)
-                          ],
-                        ),
-                      ))
-                  .toList(),
-            ),
+          
           ],
         ),
       ),
