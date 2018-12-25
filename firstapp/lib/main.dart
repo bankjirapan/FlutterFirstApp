@@ -25,7 +25,7 @@ class _MyAppComponents extends State<MyApp> {
           appBar: AppBar(
             title: Text("Hello world"),
           ),
-          body: ProductManager("First Product"),
+          body: ProductManager(),
     ),
     );
   }
