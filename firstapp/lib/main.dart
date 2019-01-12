@@ -11,7 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppComponents extends State<MyApp> {
-  List<String> ProductList = ['PadGaPao'];
+  List<String> productList = ['PadGaPao'];
 
   @override
   Widget build(contaxt) {
