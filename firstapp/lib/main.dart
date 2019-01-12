@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './product_manager.dart';
+import './pages/home.dart';
 
 main() => runApp(MyApp());
 
@@ -20,12 +20,7 @@ class _MyAppComponents extends State<MyApp> {
         brightness: Brightness.light,
         primarySwatch: Colors.blueGrey
       ),
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text("Hello world"),
-          ),
-          body: ProductManager(),
-    ),
+      home: Home()
     );
   }
 }
