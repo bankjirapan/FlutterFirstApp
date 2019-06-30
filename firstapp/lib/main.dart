@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './pages/home.dart';
+import './product_manager.dart';
 
 main() => runApp(MyApp());
 
@@ -11,16 +11,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppComponents extends State<MyApp> {
-  List<String> productList = ['PadGaPao'];
-
   @override
   Widget build(contaxt) {
     return MaterialApp(
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.blueGrey
-      ),
-      home: Home()
-    );
+        theme: ThemeData(
+            brightness: Brightness.light, primarySwatch: Colors.blueGrey),
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text('Hello FirstApp'),
+            ),
+            body: ProductManager()));
   }
 }

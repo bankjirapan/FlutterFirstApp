@@ -1,46 +1,36 @@
 import 'package:flutter/material.dart';
-import './products.dart';
-import './productControl.dart';
-
+import './product.dart';
 class ProductManager extends StatefulWidget {
-  final String startingProduct;
-
-  ProductManager({this.startingProduct});
-
   @override
   State<StatefulWidget> createState() {
-    return ProductManagerComponent();
+    return _ProductManagerState();
   }
 }
 
-class ProductManagerComponent extends State<ProductManager> {
-  List<String> _productList = [];
-
-  @override
-  void initState() {
-    if (widget.startingProduct != null) {
-      _productList.add(widget.startingProduct);
-    }
-
-    super.initState();
-  }
-
-  void addProduct(String product) {
-    setState(() {
-      _productList.add(product);
-    });
-  }
+class _ProductManagerState extends State<ProductManager> {
+    List<String> _product = ['PadGaPao'];
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        Container(
-            margin: EdgeInsets.all(10.0), child: ProductControl(addProduct)),
-        Expanded(
-          child: Products(_productList),
-        )
-      ],
-    );
+            children: [
+              Container(
+                padding: EdgeInsets.all(10),
+                child: RaisedButton(
+                  onPressed: () {
+                   setState(() {
+                     _product.add("food");
+                   });
+                  },
+                  child: Text("add Product"),
+                  color: Colors.blueGrey,
+                  textColor: Colors.white,
+                ),
+              )
+            ,
+            Products(_product)
+            ],
+
+          );
   }
 }
