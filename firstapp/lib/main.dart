@@ -1,6 +1,7 @@
+import 'package:firstapp/pages/home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import './product_manager.dart';
+// import 'package:flutter/rendering.dart';
+
 
 // main() => runApp(MyApp());
 
@@ -27,10 +28,7 @@ class _MyAppComponents extends State<MyApp> {
             brightness: Brightness.light,
             primarySwatch: Colors.blueGrey,
             accentColor: Colors.brown),
-        home: Scaffold(
-            appBar: AppBar(
-              title: Text('Hello FirstApp'),
-            ),
-            body: ProductManager()));
+        home: HomePage()
+        );
   }
 }
