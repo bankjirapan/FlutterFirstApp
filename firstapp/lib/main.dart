@@ -29,7 +29,10 @@ class _MyAppComponents extends State<MyApp> {
             brightness: Brightness.light,
             primarySwatch: Colors.blueGrey,
             accentColor: Colors.brown),
-        home: Authentication()
+        routes: {
+          '/' : (BuildContext context) => Authentication(),
+          '/home' : (BuildContext context) => HomePage()
+        },
         );
   }
 }

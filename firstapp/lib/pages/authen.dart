@@ -13,10 +13,12 @@ class Authentication extends StatelessWidget {
           child: Text('LOGIN'),
           color: Colors.green,
           onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (BuildContext context) => HomePage()),
-            );
+            // Navigator.pushReplacement(
+            //   context,
+            //   MaterialPageRoute(builder: (BuildContext context) => HomePage()),
+            // );
+
+            Navigator.popAndPushNamed(context, "/home");
           },
         ),
       )
