@@ -5,7 +5,19 @@ class ProductCreatePage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("Product create"),
+      child: RaisedButton(
+        child: Text("Open Modal"),
+        onPressed: (){
+          showModalBottomSheet(
+            context: context,
+            builder: (BuildContext context){
+              return Center(
+                child: Text("this is modal"),
+              );
+            }
+          );
+        },
+      ),
     );
   }
 

@@ -6,6 +6,32 @@ class ProductDetailPage extends StatelessWidget {
 
   ProductDetailPage(this.productName, this.productImg);
 
+  _showWarningDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Are you sure ?"),
+            content: Text("delete this is product"),
+            actions: <Widget>[
+              FlatButton(
+                child: Text("OKey"),
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context, true);
+                },
+              ),
+              FlatButton(
+                child: Text("No"),
+                onPressed: (){
+                   Navigator.pop(context);
+                },
+              )
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,16 +56,14 @@ class ProductDetailPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-            ),  
+            ),
           ),
           Container(
             padding: EdgeInsets.all(10),
             child: FlatButton(
               child: Text("Delete"),
-              color : Colors.red,
-              onPressed: (){
-                Navigator.pop(context,true);
-              },
+              color: Colors.red,
+              onPressed: () => _showWarningDialog(context),
             ),
           )
         ],

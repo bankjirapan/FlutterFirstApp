@@ -33,6 +33,9 @@ class _MyAppComponents extends State<MyApp> {
           '/' : (BuildContext context) => Authentication(),
           '/home' : (BuildContext context) => HomePage()
         },
+        onGenerateRoute: (RouteSettings routeSetting){
+          return MaterialPageRoute(builder: (BuildContext context) => Authentication());
+        },
         );
   }
 }
