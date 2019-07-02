@@ -1,3 +1,4 @@
+import 'package:firstapp/pages/authen.dart';
 import 'package:firstapp/pages/home.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
@@ -28,7 +29,7 @@ class _MyAppComponents extends State<MyApp> {
             brightness: Brightness.light,
             primarySwatch: Colors.blueGrey,
             accentColor: Colors.brown),
-        home: HomePage()
+        home: Authentication()
         );
   }
 }

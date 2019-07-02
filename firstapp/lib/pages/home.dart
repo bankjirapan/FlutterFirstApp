@@ -1,12 +1,40 @@
 import 'package:flutter/material.dart';
 import '../product_manager.dart';
+import './product_admin.dart';
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Hello FirstApp'),
-        ),
-        body: ProductManager());
+    return DefaultTabController(
+        length: 2,
+        child: Scaffold(
+            drawer: Drawer(
+              child: Column(
+                children: <Widget>[
+                  AppBar(
+                    automaticallyImplyLeading: false,
+                    title: Text("Menu"),
+                  ),
+                  ListTile(
+                    title: Text("Product admin"),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  ProductAdminPage()));
+                    },
+                  ),
+                  ListTile(
+                    title: Text("All Product"),
+                    onTap: () {
+                      
+                    },
+                  )
+                ],
+              ),
+            ),
+            appBar: AppBar(title: Text('Hello FirstApp')),
+            body: ProductManager()));
   }
 }
