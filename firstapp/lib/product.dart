@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import './pages/productDetail.dart';
 
 class Products extends StatelessWidget {
-  final List<Map<String,String>> products;
-  final Function deleteProduct;
+  final List<Map<String,dynamic>> products;
 
-  Products(this.products,{this.deleteProduct});
+
+  Products(this.products);
 
   Widget _buildItemsCard(BuildContext contaxt, int index) {
     return Card(
@@ -32,13 +32,7 @@ class Products extends StatelessWidget {
                         products[index]['image']
                         ),
                     ),
-                  ).then((bool value) {
-                   
-                   if(value){
-                     deleteProduct(index);
-                   }
-                
-                  });
+                  );
                 },
               )
             ],

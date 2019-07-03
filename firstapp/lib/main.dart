@@ -1,5 +1,6 @@
 import 'package:firstapp/pages/authen.dart';
 import 'package:firstapp/pages/home.dart';
+import 'package:firstapp/pages/product_admin.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/rendering.dart';
 
@@ -20,9 +21,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppComponents extends State<MyApp> {
-  List<Map<String, String>> _products = [];
+  List<Map<String, dynamic>> _products = [];
 
-  void _addProduct(Map<String, String> product) {
+  void _addProduct(Map<String, dynamic> product) {
     setState(() {
       _products.add(product);
     });
@@ -44,12 +45,12 @@ class _MyAppComponents extends State<MyApp> {
           primarySwatch: Colors.blueGrey,
           accentColor: Colors.brown),
       routes: {
-        // '/': (BuildContext context) => Authentication(),
-        '/': (BuildContext context) => HomePage(_products, _addProduct, _deleteProduct)
+        '/': (BuildContext context) => HomePage(_products),
+        '/admin': (BuildContext context) => ProductAdminPage(_addProduct,_deleteProduct)
       },
       onGenerateRoute: (RouteSettings routeSetting) {
         return MaterialPageRoute(
-            builder: (BuildContext context) => Authentication());
+            builder: (BuildContext context) => HomePage(_products));
       },
     );
   }

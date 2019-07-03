@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import '../product_manager.dart';
-import './product_admin.dart';
+
 
 class HomePage extends StatelessWidget {
+  final List<Map<String, dynamic>> products;
 
-final List<Map<String, String>> products;
-  final Function addProduct;
-  final Function deleteProduct;
-
-  HomePage(this.products,this.addProduct,this.deleteProduct);
+  HomePage(this.products);
 
   @override
   Widget build(BuildContext context) {
@@ -25,23 +22,17 @@ final List<Map<String, String>> products;
                   ListTile(
                     title: Text("Product admin"),
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  ProductAdminPage()));
+                      Navigator.pushNamed(context, "/admin");
                     },
                   ),
                   ListTile(
                     title: Text("All Product"),
-                    onTap: () {
-                      
-                    },
+                    onTap: () {},
                   )
                 ],
               ),
             ),
             appBar: AppBar(title: Text('Hello FirstApp')),
-            body: ProductManager(this.products,this.addProduct,this.deleteProduct)));
+            body: ProductManager(products)));
   }
 }
