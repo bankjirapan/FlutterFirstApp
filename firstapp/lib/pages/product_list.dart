@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Product_ListPage extends StatelessWidget {
+class ProductListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
       return Center(
