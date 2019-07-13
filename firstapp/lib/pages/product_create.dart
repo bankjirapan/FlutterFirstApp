@@ -15,6 +15,21 @@ class _ProductCreateState extends State<ProductCreatePage> {
   String description = '';
   double price = 0.00;
 
+
+    void _submitForm(){
+   
+                    final Map<String, dynamic> product = {
+                      'title': valueInput,
+                      'description': description,
+                      'price': price,
+                      'image': 'assets/food.jpg'
+                    };
+                    widget.addProduct(product);
+                    Navigator.popAndPushNamed(context, "/");
+         
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -64,15 +79,7 @@ class _ProductCreateState extends State<ProductCreatePage> {
                   child: Text("Save"),
                   textColor: Colors.white,
                   color: Colors.green,
-                  onPressed: () {
-                    final Map<String, dynamic> product = {
-                      'title': valueInput,
-                      'description': description,
-                      'price': price,
-                      'image': 'assets/food.jpg'
-                    };
-                    widget.addProduct(product);
-                  },
+                  onPressed: _submitForm
                 ),
               ),
               Container(
@@ -82,7 +89,7 @@ class _ProductCreateState extends State<ProductCreatePage> {
                   textColor: Colors.white,
                   color: Colors.red,
                   onPressed: () {
-                    print("Cancel");
+                     Navigator.pop(context);
                   },
                 ),
               ),

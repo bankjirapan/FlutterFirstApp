@@ -41,12 +41,14 @@ class _MyAppComponents extends State<MyApp> {
     return MaterialApp(
       // debugShowMaterialGrid: true,
       theme: ThemeData(
+          fontFamily: "Roboto",
           brightness: Brightness.light,
-          primarySwatch: Colors.blueGrey,
+          primaryColor: Color(0xFF212D47),
           accentColor: Colors.brown),
       routes: {
         '/': (BuildContext context) => HomePage(_products),
-        '/admin': (BuildContext context) => ProductAdminPage(_addProduct,_deleteProduct)
+        '/admin': (BuildContext context) =>
+            ProductAdminPage(_addProduct, _deleteProduct)
       },
       onGenerateRoute: (RouteSettings routeSetting) {
         return MaterialPageRoute(
