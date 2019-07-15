@@ -48,7 +48,7 @@ class _MyAppComponents extends State<MyApp> {
       routes: {
         '/': (BuildContext context) => HomePage(_products),
         '/admin': (BuildContext context) =>
-            ProductAdminPage(_addProduct, _deleteProduct)
+            ProductAdminPage(_addProduct, _deleteProduct,_products)
       },
       onGenerateRoute: (RouteSettings routeSetting) {
         return MaterialPageRoute(
