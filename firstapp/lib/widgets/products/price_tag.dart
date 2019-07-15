@@ -16,7 +16,7 @@ class PriceTag extends StatelessWidget{
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(5.0)),
                   child: Text(
-                    '\$${price}',
+                    '\$$price',
                     style: TextStyle(color: Colors.white),
                   ),
                 );
