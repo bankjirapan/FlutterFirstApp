@@ -30,6 +30,12 @@ class _MyAppComponents extends State<MyApp> {
     print(_products);
   }
 
+  void _updateProduct(int index,Map<String,dynamic> product){
+    setState(() {
+      _products[index] = product;
+    });
+  }
+
   void _deleteProduct(int index) {
     setState(() {
       _products.removeAt(index);
@@ -48,7 +54,7 @@ class _MyAppComponents extends State<MyApp> {
       routes: {
         '/': (BuildContext context) => HomePage(_products),
         '/admin': (BuildContext context) =>
-            ProductAdminPage(_addProduct, _deleteProduct,_products)
+            ProductAdminPage(_addProduct,_updateProduct, _deleteProduct,_products)
       },
       onGenerateRoute: (RouteSettings routeSetting) {
         return MaterialPageRoute(
