@@ -1,10 +1,11 @@
+import 'package:firstapp/models/product_model.dart';
 import 'package:firstapp/pages/product_edit.dart';
 import 'package:flutter/material.dart';
 
 class ProductListPage extends StatelessWidget {
   final Function updateProduct;
   final Function deleteProduct;
-  final List<Map<String, dynamic>> products;
+  final List<ProductModel> products;
 
   ProductListPage(this.products, this.updateProduct,this.deleteProduct);
 
@@ -30,15 +31,15 @@ class ProductListPage extends StatelessWidget {
               children: <Widget>[
                 ListTile(
                   leading: CircleAvatar(
-                    backgroundImage: AssetImage(products[index]['image']),
+                    backgroundImage: AssetImage(products[index].image),
                   ),
                   title: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(products[index]['title']),
+                      Text(products[index].title),
                     ],
                   ),
-                  subtitle: Text(products[index]['price'].toString()),
+                  subtitle: Text(products[index].price.toString()),
                   trailing: iconListButton(context,index),
                 ),
               ],
@@ -58,7 +59,7 @@ class ProductListPage extends StatelessWidget {
                 print("other");
               }
             },
-            key: Key(products[index]['title']),
+            key: Key(products[index].title),
             background: Container(color: Colors.red,),
             child: colunmList(context,index),
           );

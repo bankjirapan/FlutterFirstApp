@@ -2,6 +2,7 @@
 import 'package:firstapp/pages/home.dart';
 import 'package:firstapp/pages/product_admin.dart';
 import 'package:flutter/material.dart';
+import './models/product_model.dart';
 // import 'package:flutter/rendering.dart';
 
 // main() => runApp(MyApp());
@@ -21,16 +22,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppComponents extends State<MyApp> {
-  List<Map<String, dynamic>> _products = [];
+  List<ProductModel> _products = [];
 
-  void _addProduct(Map<String, dynamic> product) {
+  void _addProduct(ProductModel product) {
     setState(() {
       _products.add(product);
     });
     print(_products);
   }
 
-  void _updateProduct(int index,Map<String,dynamic> product){
+  void _updateProduct(int index,ProductModel product){
     setState(() {
       _products[index] = product;
     });

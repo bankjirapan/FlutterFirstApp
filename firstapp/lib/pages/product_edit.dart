@@ -1,11 +1,13 @@
+import 'package:firstapp/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductEditPage extends StatefulWidget {
   final Function addProduct;
   final Function updateProduct;
-  final Map<String, dynamic> product;
+  final ProductModel product;
   final int productIndex;
-  ProductEditPage({this.addProduct, this.updateProduct, this.product,this.productIndex});
+  ProductEditPage(
+      {this.addProduct, this.updateProduct, this.product, this.productIndex});
 
   @override
   State<StatefulWidget> createState() {
@@ -27,10 +29,20 @@ class _ProductCreateState extends State<ProductEditPage> {
       return;
     }
     _formKey.currentState.save();
-    if(widget.product == null){
-        widget.addProduct(_formData);
+    if (widget.product == null) {
+      widget.addProduct(ProductModel(
+          title: _formData['title'],
+          description: _formData['description'],
+          price: _formData['price'],
+          image: "assets/food.jpg"));
     } else {
-        widget.updateProduct(widget.productIndex,_formData);
+      widget.updateProduct(
+        widget.productIndex,
+        ProductModel(
+          title: _formData['title'],
+          description: _formData['description'],
+          price: _formData['price'],
+          image: "assets/food.jpg"));
     }
     Navigator.popAndPushNamed(context, "/");
   }
@@ -40,7 +52,7 @@ class _ProductCreateState extends State<ProductEditPage> {
       decoration: InputDecoration(
         labelText: "Product title",
       ),
-      initialValue: widget.product == null ? '' : widget.product['title'],
+      initialValue: widget.product == null ? '' : widget.product.title,
       validator: (String value) {
         if (value.isEmpty) {
           return "product is required";
@@ -61,7 +73,7 @@ class _ProductCreateState extends State<ProductEditPage> {
         labelText: "Product description",
       ),
       maxLines: 4,
-      initialValue: widget.product == null ? '' : widget.product['description'],
+      initialValue: widget.product == null ? '' : widget.product.description,
       validator: (String value) {
         if (value.isEmpty || value.length < 5) {
           return "description is required and more than 5";
@@ -80,7 +92,8 @@ class _ProductCreateState extends State<ProductEditPage> {
       decoration: InputDecoration(
         labelText: "Product price",
       ),
-      initialValue: widget.product == null ? '' : widget.product['price'].toString(),
+      initialValue:
+          widget.product == null ? '' : widget.product.price.toString(),
       keyboardType: TextInputType.number,
       validator: (String value) {
         if (value.isEmpty || RegExp('(\d+\.\d{1,2})').hasMatch(value)) {

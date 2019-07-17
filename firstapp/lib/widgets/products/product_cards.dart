@@ -2,9 +2,10 @@ import 'package:firstapp/widgets/products/product_des.dart';
 import 'package:flutter/material.dart';
 import './price_tag.dart';
 import '../../pages/productDetail.dart';
+import '../../models/product_model.dart';
 
 class ProductCards extends StatelessWidget {
-  final Map<String, dynamic> product;
+  final ProductModel product;
   final int productIndex;
 
   ProductCards(this.product, this.productIndex);
@@ -14,18 +15,18 @@ class ProductCards extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset(product['image']),
+          Image.asset(product.image),
           Container(
             margin: EdgeInsets.only(top: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  product['title'],
+                  product.title,
                   style: TextStyle(fontSize: 30),
                 ),
                 SizedBox(width: 8.0),
-                PriceTag(product['price'].toString())
+                PriceTag(product.price.toString())
               ],
             ),
           ),
@@ -42,7 +43,7 @@ class ProductCards extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (BuildContext contaxt) =>
-                          ProductDetailPage(product['title'], product['image']),
+                          ProductDetailPage(product.title,product.image),
                     ),
                   );
                 },
